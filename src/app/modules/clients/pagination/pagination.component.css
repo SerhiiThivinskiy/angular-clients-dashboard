@@ -1,0 +1,9 @@
+.pagination {
+  display: inline-flex;
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+

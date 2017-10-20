@@ -1,0 +1,39 @@
+<div class="content">
+
+  <div class="row">
+    <div class="col-lg-offset-4 col-md-offset-4 col-lg-4 col-md-4">
+      <h2>Client details</h2>
+
+      <table class="table table-condensed table-striped" width="100%">
+        <tbody *ngIf="client; else noData">
+        <tr>
+          <td>Name:</td>
+          <td>{{client.name}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{client.email}}</td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td>{{client.phone}}</td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>{{client.address}}</td>
+        </tr>
+        <tr>
+          <td>Birthday:</td>
+          <td>{{getBirthdayDate(client) | birthday}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <ng-template #noData>
+        <h3>No Data</h3>
+      </ng-template>
+      <a class="btn btn-default center-block" [routerLink]="['/clients']">Back</a>
+    </div>
+  </div>
+</div>
+
+

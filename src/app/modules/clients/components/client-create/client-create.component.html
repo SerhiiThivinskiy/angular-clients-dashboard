@@ -1,0 +1,104 @@
+<h2>Create new client</h2>
+
+<div class="row" *ngIf="isFailedCreate">
+  <div class="col-lg-offset-3 col-md-offset-3 col-lg-6 col-md-6 text-center">
+    <div class="client-create-error">Client hasn't been created!</div>
+  </div>
+</div>
+
+<form [formGroup]="form">
+
+  <div class="form-group row">
+    <div class="col-lg-3 col-md-3 text-right">
+      <label for="name">Name</label>
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <input class="form-control" id="name"
+             [(ngModel)]="client.name"
+             formControlName="name" [ngClass]="{ 'has-error': formErrors.name }">
+      <div class="has-error" *ngIf="formErrors.name">{{formErrors.name}}</div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-3 col-md-3 text-right">
+      <label for="address">Address </label>
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <input class="form-control" id="address"
+             [(ngModel)]="client.address"
+             formControlName="address" [ngClass]="{ 'has-error': formErrors.address }">
+      <div class="has-error" *ngIf="formErrors.address">{{formErrors.address}}</div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-3 col-md-3 text-right">
+      <label for="email">Email</label>
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <input class="form-control" id="email"
+             [(ngModel)]="client.email"
+             formControlName="email" [ngClass]="{ 'has-error': formErrors.email }">
+      <div class="has-error" *ngIf="formErrors.email">{{formErrors.email}}</div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-3 col-md-3 text-right">
+      <label for="phone">Phone </label>
+    </div>
+    <div class="col-lg-6 col-md-6">
+      <input class="form-control" id="phone"
+             [(ngModel)]="client.phone"
+             formControlName="phone" [ngClass]="{ 'has-error': formErrors.phone }">
+      <div class="has-error" *ngIf="formErrors.phone">{{formErrors.phone}}</div>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-3 col-md-3 text-right">
+      <label>Gender </label>
+    </div>
+    <div class="col-lg-6 col-md-6 radio-gender">
+      <input type="radio" formControlName="gender" value="male" [(ngModel)]="client.gender" [checked]="client.gender==='male'">Male
+      <input type="radio" formControlName="gender" value="female" [(ngModel)]="client.gender" [checked]="client.gender==='female'">Female
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-lg-3 col-md-3 text-right">
+      <label>BirthDay </label>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <input class="form-control" placeholder="Day"
+             [(ngModel)]="client.birthDay"
+             formControlName="birthDay" [ngClass]="{ 'has-error': formErrors.birthDay }">
+      <div class="has-error" *ngIf="formErrors.birthDay">{{formErrors.birthDay}}</div>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <input class="form-control" placeholder="Month"
+             [(ngModel)]="client.birthMonth"
+             formControlName="birthMonth" [ngClass]="{ 'has-error': formErrors.birthMonth }">
+      <div class="has-error" *ngIf="formErrors.birthMonth">{{formErrors.birthMonth}}</div>
+    </div>
+    <div class="col-lg-2 col-md-2">
+      <input class="form-control" placeholder="Year"
+             [(ngModel)]="client.birthYear"
+             formControlName="birthYear" [ngClass]="{ 'has-error': formErrors.birthYear }">
+      <div class="has-error" *ngIf="formErrors.birthYear">{{formErrors.birthYear}}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-offset-5 col-md-offset-5 col-lg-1 col-md-1">
+      <a class="btn btn-default" [routerLink]="['/clients']">Cancel</a>
+    </div>
+
+    <div class="col-lg-1 col-md-1">
+      <a class="btn btn-default btn-create" (click)="createClient()">Create</a>
+    </div>
+  </div>
+
+</form>
+

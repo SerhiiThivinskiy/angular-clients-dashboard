@@ -1,0 +1,13 @@
+<ul class="pagination">
+  <li [ngClass]="{'disabled': currentPage - 1 == 0}">
+    <a (click)="decrement()">Previous</a>
+  </li>
+
+  <li class="form-group">
+    <input size="3" class="form-control" [value]="currentPage" (input)="setCurrentPage($event.target.value)">
+  </li>
+
+  <li [ngClass]="{'disabled': currentPage === pagesCount}">
+    <a (click)="increment()">Next</a>
+  </li>
+</ul>

@@ -1,0 +1,57 @@
+<div class="content">
+  <div class="row">
+    <div class="col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4">
+      <input class="form-control input-sm m-b-md" placeholder="Find by name" [(ngModel)]="filterParams.name" (keyup)="filter()">
+    </div>
+
+    <div class="col-lg-offset-1 col-md-offset-1 col-lg-3 col-md-3">
+      <label class="col-sm-4 control-label p-xxs text-right">Gender:</label>
+      <div class="col-sm-8">
+        <select class="form-control m-b" name="role" [(ngModel)]="filterParams.gender" (change)="filter()">
+          <option *ngFor="let gender of genders" [value]="gender.value">{{gender.key}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-2 col-md-2">
+      <a class="btn btn-default pull-right" [routerLink]="['/clients/new']">Create new client</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-offset-1 col-md-offset-1 col-lg-10 col-md-10">
+      <table cellpadding="1" cellspacing="1" class="table table-condensed table-striped" width="100%">
+        <thead>
+        <tr>
+          <th width="25%">First Name</th>
+          <th width="20%">Email</th>
+          <th width="20%">Phone</th>
+          <th width="20%">Address</th>
+          <th width="10%">Birthday</th>
+          <th width="5%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let client of filteredClients">
+          <td>{{client.name}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.phone}}</td>
+          <td>{{client.address}}</td>
+          <td>{{getBirthdayDate(client) | birthday}}</td>
+          <td>
+            <a [routerLink]="['/clients', client.id]">view</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <div class="row">
+        <div class="col-lg-offset-5 col-md-offset-5 col-lg-4 col-md-4">
+          <app-pagination (currentPageChange)="fetchUsers($event)"></app-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

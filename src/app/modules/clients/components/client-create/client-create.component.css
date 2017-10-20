@@ -1,0 +1,22 @@
+.has-error {
+  border-color: #d62c1a;
+  font-size: 13px;
+  color: #d62c1a;
+}
+
+.client-create-error {
+  color: #d62c1a;
+  margin-bottom: 2%;
+}
+
+h2 {
+  text-align: center;
+}
+
+.btn-create {
+  float: right;
+}
+
+.radio-gender input {
+  margin: 0 1%;
+}
